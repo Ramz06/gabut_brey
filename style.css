@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap');
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-bottom: 2000px;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(151, 54, 151);
+    justify-content: space-around;
+    color: rgb(223, 211, 223);
+    align-items: center;
+    font-family: "Pacifico", cursive;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 2;
+    position: fixed;
+}
+
+nav h4 {
+    font-size: 1.6em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+    font-family: "Ruda", sans-serif;
+}
+
+nav ul li a {
+    color: rgb(223, 211, 223);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: violet;
+    text-decoration: underline;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 20px;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    opacity: 0;
+    top: -4px;
+    left: -6px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(223, 211, 223);
+    border-radius: 3px;
+    transition: all 0.39s;
+}
+
+/* Hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;  
+}
+
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;  
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+
+.menu-toggle input:checked ~ span:last-child {
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+/* Responesive Breakpoint */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    nav {
+        height: 60px;
+    }
+
+    nav ul {
+        display: flex;
+        height: 89vh;
+        justify-content: space-around;
+        position: fixed;
+        flex-direction: column;
+        right: 0;
+        background-color: aqua;
+        bottom: 0;
+        align-items: center;
+        z-index: -1;
+        background-color: rgb(197, 93, 197);
+        overflow-x: hidden;
+        transform: translateX(100%);
+        transition: all .5s ease-in-out;
+    }
+
+    nav ul li {
+        display: flex;
+        border: 3px solid rgb(184, 45, 184);
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+}
